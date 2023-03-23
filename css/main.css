@@ -1,0 +1,143 @@
+html{
+    font-size: 62.5%; /* Imposta una grandezza del font di tutto il documento HTML */
+}
+body{
+    margin: 0;/* Toglie tutti gli spazi bianchi che sono impostati in automatico*/
+    font-family: 'Poppins'; /* Imposta la famiglia di font che vogliamo usare */
+}
+.wrapper{
+    max-width: 1200px; /* Serve per impostare una massima larghezza della pagina che vogliamo creare*/
+    margin: 0 auto; /* Serve per lasciare spazio bianco sia a destra che a sinistra quindi più o meno è come se lo centrasse ma solo in larghezza */
+}
+
+/* NAVBAR */
+
+header{
+    display: flex;/* Serve per spostare il nav a fianco al logo*/
+    justify-content: space-between; /* Serve per spostare il nav tutto a destra e lasciare in mezzo lo spazio bianco*/
+    align-items: center; /* Serve per centrare all'interno della pagina l'header e quindi lasciando lo spazio bianco anche sopra*/
+}
+nav{
+    margin: 4em; /* ci darà più spazio bianco intorno al nav*/
+}
+nav ul{
+    list-style-type: none; /* Serve per togliere i punti all'elenco puntato(<ul>) */
+    display: flex; /* Serve per mettere i pulsanti in colonna cioè uno di fianco all'altro*/
+    gap: 4.1em; /* Lunghezza dello spazio bianco tra un pulsante e l'altro */
+    margin: 0; /* Per sbarazzarci di alcuni spazi bianchi attorno ai pulsanti */
+}
+/* 
+Possiamo mettere "nav ul li a" per specificarci al tag a dentro al tag li che sta dentro al tag ul
+che a sua volta sta dentro al tag nav.
+Se no possiamo dare al tag a all'interno di tutti questi tag una classe e quindi usare il nome della classe 
+per modificare quello specifico tag.
+*/
+nav ul li a{
+    text-decoration: none; /* Serve per togliere la sottolineatura dei riferimenti cioè del tag a*/
+    color: black; /* Serve a colorare di nero il testo dei pulsanti*/
+    text-transform: uppercase; /* Serve a rendere il testo in Maiuscolo*/
+    font-size: 1.6rem; /*Serve per impostare la grandezza del testo. Es: Se la grandezza è 16 il valore sarà 1.6rem*/
+    position: relative; /* posizione sul genitore e dice che la posizione del trattino creato sotto si riferisce a questo*/
+    /*
+    Spiegazione veloce sulla differenza tra rem e em è che rem si usa per le dimensioni del testo e dei caratteri mentre em si usa 
+    per le dimensioni di margini, bordi etc.
+    */
+}
+nav ul li a.active:before{
+    position: absolute; /*posizione sul figlio*/
+    content: "";
+    width: 35%; /*la larghezza del trattino*/
+    height: 1px; /*L'altezza del trattino*/
+    border-bottom: 2px solid black; /*il bordo e il colore del trattino*/
+    bottom: -6px; /*bottom: 0; sposta il trattino in basso con il -6px sposta il trattino ancora più in basso*/
+}
+
+/* Hero Section */
+
+main{
+    display: flex; /* Anche qua serve a dirgli che abbiamo due rettangoli e uno deve stare a destra e l'altro a sinistra */
+    gap: 8em; /* Questo serve a creare lo spazio tra i due rettangoli */
+    margin-top: 11em; /* (11em equivalgono a 110px) Serve a creare uno spazio bianco tra il contenuto e la navbar sopra */
+}
+
+.left-col{
+    width: 45%;
+}
+
+.right-col{
+    flex-grow: 1; /* Serve a dire al div di occupare lo spazio massimo che può occupare e non solo lo spazio di ciò che c'è all'interno */
+}
+
+h1{
+    font-size: 5.2rem;
+    font-family: 'Playfair Display';
+    font-weight: normal; /* Specifica il peso dei glifi nel font, il loro grado di nero o lo spessore del tratto. */
+    margin: 0; /* Elimina il margine impostato in automatico dal browser regolato in base alla dimensione del carattere*/
+}
+
+.subhead{
+    font-size: 1.8rem;
+}
+
+.cta-btns{
+    margin: 5em 0; /* si sposta di 50px sia sopra che sotto e 0 a sinistra e a destra*/
+}
+
+.cta-btns, .secondary-cta{
+    display: flex;
+    gap: 2em;
+}
+
+.primary-cta{
+    background-color: #F1E2D1; /* Colore di sfondo del pulsante (tag a)*/
+    font-size: 1.8rem;
+    font-weight: bold;/*Specifica il peso dei glifi nel font, il loro grado di nero o lo spessore del tratto.*/
+    color: black;
+    text-decoration: none;
+    border-radius: 1.9em;
+    padding: 1em 2em; /* è lo spazio che lavora all'interno del contenitore */
+}
+
+.secondary-cta{
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: black;
+    display: block; /* fa si che il testo non vada a capo */
+    padding: 1em 0;
+}
+
+.secondary-cta svg{
+    width: 20px;
+}
+
+.news{
+    display: flex;
+    gap: 3em;
+    padding: 5em;
+    border: 1px solid black;
+    border-radius: .8em; /* crea la curva negli spigoli di 8px cioè 0,8em*/
+    position: relative;
+}
+
+.news:before{ /* Rappresenta uno pseudo-elemento figlio stilizzabile immediatamente prima del contenuto effettivo dell'elemento di origine. */
+    position: absolute;
+    content: "";
+    background: url('../images/confetti.svg');
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: -20px;
+    z-index: 2; /* Per una casella posizionata, la proprietà '-index' specifica il livello di impilamento della casella nel contesto di impilamento corrente e se la casella stabilisce un contesto di impilamento locale. */
+}
+
+p.employees{
+    font-size: 3.3rem;
+    margin: 0;
+    font-weight: 200;
+    line-height: 100%; /* si allinea in altezza con l'altra colonna*/
+}
+
+p.details{
+    font-size: 1.4rem;
+    margin: 0;
+}
