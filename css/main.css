@@ -52,6 +52,17 @@ nav ul li a.active:before{
     bottom: -6px; /*bottom: 0; sposta il trattino in basso con il -6px sposta il trattino ancora più in basso*/
 }
 
+/* Microinteractions */
+nav ul li a:before {
+    position: absolute; /*posizione sul figlio*/
+    content: "";
+    width: 0%; /*la larghezza del trattino qua è a 0 perchè noi lo vogliamo visualizzare solo quando ci passiamo sopra con il mouse*/
+    height: 1px; /*L'altezza del trattino*/
+    border-bottom: 2px solid rgb(122, 122, 122); /*il bordo e il colore del trattino*/
+    bottom: -6px; /*bottom: 0; sposta il trattino in basso con il -6px sposta il trattino ancora più in basso*/
+    transition: width .3s; /* Questo ci serve per far dire che la width deve cambiare in base al passaggio del mouse e per una durata di 0,3 secondi */
+}
+
 /* Hero Section */
 
 main{
@@ -108,6 +119,8 @@ h1{
 
 .secondary-cta svg{
     width: 20px;
+    /* Microinteractions */
+    transition: transform .3s;
 }
 
 .news{
@@ -159,6 +172,8 @@ p.details{
     display: flex;
     align-items: end; /* Questo comando insieme al display flex serve per spostare il contenuto in fondo alla card */
     background-size: 150%;
+    /* Microinteractions */
+    transition: background-size 800ms;
 }
 
 .card1{
@@ -196,6 +211,8 @@ p.details{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* MicroIntegrations */
+    transition: transform 800ms;
 }
 
 .card-details a{
@@ -219,3 +236,57 @@ p.product-price{
 /* Si applica quando l'utente designa un elemento con un dispositivo di puntamento, ma non lo attiva necessariamente.
 Per esempio, un interprete visivo potrebbe applicare questa pseudo-classe quando il cursore (puntatore del mouse) passa sopra un riquadro generato dall'elemento. */
 
+nav ul li a:hover::before { /* :before Rappresenta uno pseudo-elemento figlio stilizzabile immediatamente prima del contenuto effettivo dell'elemento di origine. */
+    width: 35%;
+}
+
+.primary-cta:hover{
+    background: #E2D1BD;
+}
+
+.secondary-cta:hover svg{
+    transform: translateX(10px); /* questo comando dice di spostare sulla linea orizzontale (X) l'elemento svg quando ci passiamo sopra di 10px*/
+}
+
+.secondary-cta:hover{
+    text-decoration: underline;
+}
+
+.card:hover{
+    background-size: 160%;
+}
+
+.card:hover .card-details {
+    transform: translateY(-20px);
+}
+
+/* Intro Animation */
+.overlay{
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: bottom;
+}
+
+@keyframes reveal{
+    from{
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+
+main {
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn {
+    to {
+        transform: scale(1);
+    }
+}
