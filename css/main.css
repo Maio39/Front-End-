@@ -141,3 +141,81 @@ p.details{
     font-size: 1.4rem;
     margin: 0;
 }
+
+/* Right Column Gallery */
+
+.right-col{
+    display: grid;
+    gap: 2.3em;
+    grid-template-columns: repeat(2,auto); /* è uguale a auto auto */
+    grid-template-areas: /* Serve a dividere la griglia in questo modo left è uguale perchè la parte di sinistra avrà due righe */
+        "left right"
+        "left bottom";
+}
+
+.card{
+    border-radius: .8em;
+    padding: 1.1em;
+    display: flex;
+    align-items: end; /* Questo comando insieme al display flex serve per spostare il contenuto in fondo alla card */
+    background-size: 150%;
+}
+
+.card1{
+    grid-area: left; /* Questo comando serve per dire al sistema che questa carta occupera la parte grid con nome left */
+    background-image: url('../images/clothing1.jpg');
+    position: relative;
+}
+
+.card1:before{
+    position: absolute;
+    content: "";
+    background: url('../images/tag.svg') no-repeat; /* Se non mettiamo no-repeat l'immagini si ripete per tutto il div */
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    left: -30px;
+    pointer-events: none; /* Serve per dire al sistema di non dare effetti sul puntatore e quindi si può cliccare sui link se no senza questo non si può */
+}
+
+.card2{
+    grid-area: right; /* Questo comando serve per dire al sistema che questa carta occupera la parte grid con nome left */
+    background-image: url('../images/clothing2.jpg');
+}
+
+.card3{
+    grid-area: bottom; /* Questo comando serve per dire al sistema che questa carta occupera la parte grid con nome left */
+    background-image: url('../images/clothing3.jpg');
+}
+
+.card-details{
+    background: white;
+    border-radius: .6em;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-details a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.card-details p{
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+p.product-price{
+    font-size: 1.8rem;
+}
+
+/* MicroInteractions */
+
+/* Si applica quando l'utente designa un elemento con un dispositivo di puntamento, ma non lo attiva necessariamente.
+Per esempio, un interprete visivo potrebbe applicare questa pseudo-classe quando il cursore (puntatore del mouse) passa sopra un riquadro generato dall'elemento. */
+
